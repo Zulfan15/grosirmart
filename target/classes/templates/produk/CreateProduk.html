@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Grosir Mart</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  </head>
+  <body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 mx-auto rounded border p-4 m-4">
+              <h2 class="text-center mb-5">New Produk</h2>
+
+              <form method="post" enctype="multipart/form-data" th:object="$(produkDto)">
+                  <div class="row mb-3">
+                    <label class="col-sm-4 col-form-label">Nama</label>
+                    <div class="col-sm-8">
+                        <input class="form-control" th:field="$(produkDto.nama)">
+                        <p th:if="${#fields.hasErrors('nama')}" th:errorsclass="text-danger" th:errors="${produkDto.nama}"></p>
+                    </div>
+                  </div>
+
+                    <div class="row mb-3">
+                        <label class="col-sm-4 col-form-label">Merk</label>
+                        <div class="col-sm-8">
+                            <input class="form-control" th:field="$(produkDto.merk)">
+                            <p th:if="${#fields.hasErrors('merk')}" th:errorsclass="text-danger" th:errors="${produkDto.merk}"></p>
+                        </div>
+                    </div>
+ 
+                    <div class="row mb-3">
+                        <label class="col-sm-4 col-form-label">Kategori</label>
+                        <div class="col-sm-8">
+                            <select class="form-select" th:field="$(produkDto.kategori)">
+                                <option value='Pilih Kategori'>Pilih Kategori</option>
+                                <option value='Makanan'>Makanan</option>
+                                <option value='Minuman'>Minuman</option>
+                                <option value='Sembako'>Sembako</option>
+                            </select>
+                            <p th:if="${#fields.hasErrors('kategori')}" th:errorsclass="text-danger" th:errors="${produkDto.kategori}"></p>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <label class="col-sm-4 col-form-label">Harga</label>
+                        <div class="col-sm-8">
+                            <input class="form-control" th:field="$(produkDto.harga)">
+                            <p th:if="${#fields.hasErrors('harga')}" th:errorsclass="text-danger" th:errors="${produkDto.harga}"></p>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <label class="col-sm-4 col-form-label">Deskripsi</label>
+                        <div class="col-sm-8">
+                            <textarea class="form-control" th:field="$(produkDto.deskripsi)"></textarea> <!-- Added closing tag for textarea -->
+                            <p th:if="${#fields.hasErrors('deskripsi')}" th:errorsclass="text-danger" th:errors="${produkDto.deskripsi}"></p>
+                        </div>
+                    </div>
+
+                    <div class="row mb-3">
+                        <label class="col-sm-4 col-form-label">Gambar</label>
+                        <div class="col-sm-8">
+                            <input class="form-control" type="file" th:field="$(produkDto.gambar)">
+                            <p th:if="${#fields.hasErrors('gambar')}" th:errorsclass="text-danger" th:errors="${produkDto.gambar}"></p>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="offset-sm-4 col-sm-4 d-grid">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </div>
+                        <div class="col-sm-4 d-grid">
+                            <a class="btn btn-secondary" href="/produk" role="button">Cancel</a>
+                        </div>
+                    </div>
+        
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  </body>
+</html>
